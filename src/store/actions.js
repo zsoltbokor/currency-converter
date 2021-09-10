@@ -11,7 +11,7 @@ export default {
 
         if (missingDates.length) {
             const ratesResponse = await Promise.all(missingDates.map(async date => {
-                const response = await fetch(`http://data.fixer.io/api/${date}?access_key=${process.env.VUE_APP_API_KEY}&format=1`);
+                const response = await fetch(`https://data.fixer.io/api/${date}?access_key=${process.env.VUE_APP_API_KEY}&format=1`);
                 return await response.json();
             }));
 
