@@ -5,10 +5,11 @@
            @keyup="updateInput('value', $event.target.value)"
            v-bind:value="input.value"
     />
-    <input type="text"
-           placeholder="YYYY-MM-DD"
-           @keyup="updateInput('on', $event.target.value)"
-           v-bind:value="input.on"
+    <datepicker
+        :format="format"
+        :disabled-dates="disabledDates"
+        :placeholder="placeholder"
+        :wrapper-class="wrapperClass"
     />
     <input type="text"
            placeholder="Exchange Value"
@@ -21,9 +22,21 @@
 </template>
 
 <script>
+import Datepicker from 'vuejs-datepicker';
+
 export default {
   name: 'InputComponent',
   props: ['index'],
+  data: () => {
+    return {
+      format: 'yyyy-MM-dd',
+      disabledDates: {
+        from: new Date()
+      },
+      placeholder: 'Select date',
+      wrapperClass: 'picker-wrapper',
+    }
+  },
   methods: {
     removeInput(){
       this.$store.commit('deleteInput', this.index);
@@ -42,6 +55,9 @@ export default {
     input () {
       return this.$store.getters.getInput(this.index);
     }
+  },
+  components: {
+    Datepicker
   }
 }
 </script>
@@ -53,5 +69,13 @@ export default {
 
 input {
   margin-right: 15px;
+}
+
+.picker-wrapper {
+  display: inline;
+}
+
+.picker-wrapper >>> div {
+  display: inline;
 }
 </style>

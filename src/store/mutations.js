@@ -8,7 +8,7 @@ export default {
         state.inputs = [
             ...state.inputs,
             {
-                value: 0,
+                value: null,
                 on: format(new Date(), 'yyyy-MM-dd'),
                 exchange: 0
             }
