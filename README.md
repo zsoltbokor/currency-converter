@@ -1,9 +1,22 @@
-# vue
+# Currency converter
+
+This is an application written in vue js. The scope of the project is to enter multiple values with a source currency on different dates and the app then pulls the exchange rates and does the conversion for the specified dates. In the end provides a total value.
+
+![image](https://user-images.githubusercontent.com/17491034/132886129-37af5370-23e1-4246-996c-6fab78dd187d.png)
+
 
 ## Project setup
 ```
 yarn install
 ```
+
+## Get your api key
+
+Register on: https://fixer.io/
+
+and copy the .env.sample to .env.local and place your key
+
+
 
 ### Compiles and hot-reloads for development
 ```
@@ -22,3 +35,7 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Demo:
+
+https://eloquent-dubinsky-15aaab.netlify.app
