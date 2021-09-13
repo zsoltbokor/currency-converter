@@ -2,7 +2,8 @@
 
 This is an application written in vue js. The scope of the project is to enter multiple values with a source currency on different dates and the app then pulls the exchange rates and does the conversion for the specified dates. In the end provides a total value.
 
-![image](https://user-images.githubusercontent.com/17491034/132886129-37af5370-23e1-4246-996c-6fab78dd187d.png)
+![image](https://user-images.githubusercontent.com/17491034/133068293-a1c2abc3-6532-4e09-b98c-f23be9b61f28.png)
+
 
 
 ## Project setup
