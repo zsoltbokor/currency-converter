@@ -23,7 +23,7 @@ export default {
         inputs.forEach((input, index) => {
             commit('updateInput', {
                 data: {
-                    exchange: (parseInt(input.value) / rates[input.on][currency.from]) * rates[input.on][currency.to]
+                    exchange: (parseInt(input.value) / rates[input.on][input.currency]) * rates[input.on][currency.to]
                 },
                 index
             })

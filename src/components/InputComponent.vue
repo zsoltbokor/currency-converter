@@ -11,6 +11,19 @@
         :placeholder="placeholder"
         :wrapper-class="wrapperClass"
     />
+
+    <select @change="updateInput('currency', $event.target.value)">
+      <option v-bind:value="-1">Select currency</option>
+      <option
+          v-for="(currency, index) of currencies"
+          v-bind:key="'to-' + index"
+          v-bind:value="currency"
+          v-bind:selected="currency === input.currency || currency === fromCurrency"
+      >
+        {{ currency }}
+      </option>
+    </select>
+
     <input type="text"
            placeholder="Exchange Value"
            v-bind:value="input.exchange.toFixed(2)"
@@ -23,6 +36,7 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker';
+import {getCurrencies} from "@/utils/data-utils";
 
 export default {
   name: 'InputComponent',
@@ -35,6 +49,7 @@ export default {
       },
       placeholder: 'Select date',
       wrapperClass: 'picker-wrapper',
+      currencies: getCurrencies(),
     }
   },
   methods: {
@@ -54,6 +69,9 @@ export default {
   computed: {
     input () {
       return this.$store.getters.getInput(this.index);
+    },
+    fromCurrency() {
+      return this.$store.getters.getCurrencies.from
     }
   },
   components: {
@@ -69,6 +87,8 @@ export default {
 
 input {
   margin-right: 15px;
+  display: inline-block;
+  width: 15%;
 }
 
 .picker-wrapper {
@@ -77,5 +97,9 @@ input {
 
 .picker-wrapper >>> div {
   display: inline;
+}
+
+select {
+  margin-right: 15px;
 }
 </style>

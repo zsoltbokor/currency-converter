@@ -10,6 +10,7 @@ export default {
             {
                 value: null,
                 on: format(new Date(), 'yyyy-MM-dd'),
+                currency: state.currency.from,
                 exchange: 0
             }
         ]

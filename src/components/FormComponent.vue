@@ -20,7 +20,7 @@
 
     <hr />
 
-    <button v-on:click="addNewInput">Add new entry</button>
+    <button v-if="ftc.to != null && ftc.from != null" v-on:click="addNewInput">Add new entry</button>
 
     <hr />
 
